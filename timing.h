@@ -8,7 +8,7 @@
  */
 void initTimer() {
 	T0CTCR = 0;					// Reset Timer0 to deactivate counting
-	T0MR0 = 499999;			// Limit count calculation for 100 ms
+	T0MR0 = 499999;					// Limit count calculation for 100 ms
 	T0MCR = 4;					// Stop timer when T0TC = T0MR0
 	T0TCR = 2;					// Reset timer
 }
@@ -18,9 +18,9 @@ void initTimer() {
  * @return: <void> None
  */
 void delay(int time) {	
-	T0TCR = 2;									// Reset Timer
-	T0TCR = 1;									// Start timer
+	T0TCR = 2;					// Reset Timer
+	T0TCR = 1;					// Start timer
 	while(T0TC != T0MR0);				// Delay
-	T0TC = 0;										// Reset counted value
-	T0TCR = 2;									// Disable timer	
+	T0TC = 0;					// Reset counted value
+	T0TCR = 2;					// Reset timer	
 }	
