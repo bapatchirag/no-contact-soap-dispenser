@@ -1,6 +1,6 @@
 /* Distance and pressure sensor functions
  * Ultrasonic distance sensor connected to ADC channel AD1.1
- * Pressure sensor connected to ADC channel AD1.2
+ * Weight sensor connected to ADC channel AD1.2
  */
 
 #define MINPRESSURE 50
@@ -28,11 +28,11 @@ int getDistance() {
  */
 int getPressure() {
 	PINSEL0 |= (3 << 20);						// Select option 3 of P0.10 - AD1.2
-	int pressure;																	// Pressure value from pressure sensor
+	int weight;																	// Pressure value from pressure sensor
 	
 	AD1CR = (1 << 2) | (1 << 21) | (1 << 24);			// D1: Select AD1.2; D21: ADC activate; D24: Start of Conversion
 	while(!(AD1DR2 & (1u << 31)));					// Obtain values while End of Conversion at D31 is not reached
-	pressure = (AD1DR2 >> 6) & 0x3FF;				// AD1.2 result
+	weight = (AD1DR2 >> 6) & 0x3FF;					// AD1.2 result
 	
-	return pressure;
+	return weight;
 }
