@@ -72,7 +72,7 @@ int isInRange() {
  * @return: <int> 1 if dispensing is possible, 0 otherwise
  */
 int canDispense() {
-	if(!isEmpty() || isInRange())
+	if(!isEmpty() && isInRange())
 		return 1;
 	return 0;
 }
