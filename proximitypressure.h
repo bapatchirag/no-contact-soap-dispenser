@@ -3,7 +3,7 @@
  * Weight sensor connected to ADC channel AD1.2
  */
 
-#define MINPRESSURE 50
+#define MINWEIGHT 50
 #define MINDISTANCE 1000
 #define MAXDISTANCE 400
 
@@ -26,7 +26,7 @@ int getDistance() {
  * @param: None
  * @return: <int> Pressure of soap above the bottom of dispenser
  */
-int getPressure() {
+int getWeight() {
 	PINSEL0 |= (3 << 20);						// Select option 3 of P0.10 - AD1.2
 	int weight;																	// Pressure value from pressure sensor
 	
