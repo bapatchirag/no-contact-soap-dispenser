@@ -50,7 +50,7 @@ int main() {
  * @return: <int> 1 if it is empty, 0 otherwise
  */
 int isEmpty() {
-	if(getPressure() <= MINPRESSURE)
+	if(getWeight() <= MINWEIGHT)
 		return 1;
 	return 0;
 }
